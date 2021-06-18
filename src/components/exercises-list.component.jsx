@@ -1,4 +1,4 @@
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -6,6 +6,9 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
+import EditIcon from "@material-ui/icons/Edit";
+import IconButton from "@material-ui/core/IconButton";
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
@@ -20,15 +23,20 @@ const Exercise = (props) => (
     <TableCell>{props.exercise.calories}</TableCell>
     <TableCell>{props.exercise.date.substring(0, 10)}</TableCell>
     <TableCell>
-      <Link to={"/edit/" + props.exercise._id}>edit</Link> |{" "}
-      <a
-        href="#"
-        onClick={() => {
-          props.deleteExercise(props.exercise._id);
-        }}
-      >
-        delete
-      </a>
+      <Link to={"/edit/" + props.exercise._id}>
+        <IconButton edge="start" color="disabled" aria-label="menu">
+          <EditIcon fontSize="small" />
+        </IconButton>
+      </Link>
+      |{" "}
+      <IconButton edge="start" aria-label="menu">
+        <DeleteForeverIcon
+          fontSize="small"
+          onClick={() => {
+            props.deleteExercise(props.exercise._id);
+          }}
+        />
+      </IconButton>
     </TableCell>
   </TableRow>
 );
@@ -51,15 +59,15 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 700,
-  },
-});
-
-
+// const useStyles = makeStyles({
+//   table: {
+//     minWidth: 700,
+//   },
+// });
 
 export default class ExercisesList extends Component {
+  // const classes = useStyles();
+
   constructor(props) {
     super(props);
 
@@ -67,8 +75,6 @@ export default class ExercisesList extends Component {
 
     this.state = { exercises: [] };
   }
-
-  const classes = useStyles();
 
   componentDidMount() {
     axios
@@ -106,15 +112,16 @@ export default class ExercisesList extends Component {
   render() {
     return (
       <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="customized table">
+        <Table aria-label="customized table">
           <TableHead>
             <TableRow>
               <StyledTableCell>Username</StyledTableCell>
-              <StyledTableCell align="right">Description</StyledTableCell>
-              <StyledTableCell align="right">Distance</StyledTableCell>
-              <StyledTableCell align="right">Calories</StyledTableCell>
-              <StyledTableCell align="right">Date</StyledTableCell>
-              <StyledTableCell align="right">Actions</StyledTableCell>
+              <StyledTableCell>Description</StyledTableCell>
+              <StyledTableCell>Duration</StyledTableCell>
+              <StyledTableCell>Distance</StyledTableCell>
+              <StyledTableCell>Calories</StyledTableCell>
+              <StyledTableCell>Date</StyledTableCell>
+              <StyledTableCell>Actions</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>{this.exerciseList()}</TableBody>

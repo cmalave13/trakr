@@ -102,7 +102,7 @@ export default class CreateExercises extends Component {
         <h3>Create New Exercise Log</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Username: </label>
+            <label>Select Activity</label>
             <select
               ref="userInput"
               required
@@ -121,7 +121,7 @@ export default class CreateExercises extends Component {
             </select>
           </div>
           <div className="form-group">
-            <label>Description: </label>
+            <label>Intensity (1-10)</label>
             <input
               type="text"
               required

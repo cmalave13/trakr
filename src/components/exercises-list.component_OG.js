@@ -75,7 +75,7 @@ export default class ExercisesList extends Component {
             <tr>
               <th>Username</th>
               <th>Description</th>
-              <th>Duration</th>
+              <th>Dura tion</th>
               <th>Distance</th>
               <th>Calories</th>
               <th>Date</th>

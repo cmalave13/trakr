@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   stylebar: {
     background: "linear-gradient(45deg, #000000 30%, #353839 90%)",
     minHeight: 20,
-    width: "100%",
+    margin: 0,
   },
   button: {
     background: "linear-gradient(45deg, #000000 30%, #353839 90%)",
