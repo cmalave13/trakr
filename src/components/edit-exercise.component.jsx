@@ -125,7 +125,7 @@ export default class EditExercise extends Component {
       <div style={{ backgroundColor: "#ffeb3b" }}>
         <Grid container spacing="0" direction="column" alignItems="center">
           <div>
-            <h3>Edit Exercise Log</h3>
+            <h3>EDIT EXERCISE LOG</h3>
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <label>Activity</label>
@@ -186,8 +186,7 @@ export default class EditExercise extends Component {
               </div>
 
               <div className="form-group">
-                <label>Date: </label>
-                <div>
+                <div alignItems="center" align="center">
                   <DatePicker
                     selected={this.state.date}
                     onChange={this.onChangeDate}
@@ -195,7 +194,7 @@ export default class EditExercise extends Component {
                 </div>
               </div>
 
-              <div className="form-group">
+              <div className="form-group" alignItems="center" align="center">
                 <DetailsIcon fontSize="large" />
 
                 <Button

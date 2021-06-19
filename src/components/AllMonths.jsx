@@ -46,6 +46,9 @@ const Months = () => {
 
   return (
     <div style={{ backgroundColor: "#ffeb3b" }}>
+      <h2 style={{ fontFamily: "sans-serif", textAlign: "center" }}>
+        MONTHLY STATS
+      </h2>
       <Container maxWidth="lg" className={classes.root}>
         <Grid container spacing={3} alignItems="stretch">
           <Grid item xs={12} sm={4}>

@@ -16,6 +16,9 @@ import TimerIcon from "@material-ui/icons/Timer";
 import NearMeIcon from "@material-ui/icons/NearMe";
 import EventAvailableIcon from "@material-ui/icons/EventAvailable";
 import ListAltIcon from "@material-ui/icons/ListAlt";
+import Box from "@material-ui/core/Box";
+
+import Container from "@material-ui/core/Container";
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
@@ -48,6 +51,13 @@ const Exercise = (props) => (
   </TableRow>
 );
 
+// const Totals = (props) => {
+//   <TableRow>
+//     <TableCell>Totals:</TableCell>
+//     <TableCell>{props.exercise.calories}</TableCell>
+//   </TableRow>;
+// };
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: "#ffeb3b",
@@ -72,6 +82,9 @@ const StyledTableCell = withStyles((theme) => ({
 //     minWidth: 700,
 //   },
 // });
+let calorieTotal = 0;
+let distanceTotal = 0;
+let durationTotal = 0;
 
 export default class ExercisesList extends Component {
   // const classes = useStyles();
@@ -103,9 +116,20 @@ export default class ExercisesList extends Component {
     this.setState({
       exercises: this.state.exercises.filter((el) => el._id !== id),
     });
+    window.location = "/";
   };
 
   exerciseList = () => {
+    // console.log(this.state.exercises);
+
+    for (let i = 0; i < this.state.exercises.length; i++) {
+      let exerciseObject = this.state.exercises[i];
+      calorieTotal += exerciseObject.calories;
+      distanceTotal += exerciseObject.distance;
+      durationTotal += exerciseObject.duration;
+      // console.log(calorieTotal);
+    }
+
     return this.state.exercises.map((currentexercise) => {
       return (
         <Exercise
@@ -116,6 +140,13 @@ export default class ExercisesList extends Component {
       );
     });
   };
+
+  // calorieTotal = () => {
+  //   console.log(this.state.exercises);
+  //   return this.state.exercises.map((currentexercise) => {
+  //     return <Totals exercise={currentexercise} key={currentexercise._id} />;
+  //   });
+  // };
 
   render() {
     return (
@@ -161,6 +192,20 @@ export default class ExercisesList extends Component {
           </TableHead>
           <TableBody>{this.exerciseList()}</TableBody>
         </Table>
+        <div style={{ borderColor: "black" }}>
+          <Box display="flex" justifyContent="center">
+            <Container align="center" style={{ backgroundColor: "#ffeb3b" }}>
+              <img
+                src={"https://i.imgur.com/llbBNEg.png"}
+                alt="stats"
+                width="200px"
+              />
+              <h4>You burned {calorieTotal} calories so far!</h4>
+              <h4>You traveled a distance of {distanceTotal} miles!</h4>
+              <h4>You logged {durationTotal} minutes of activities!</h4>
+            </Container>
+          </Box>
+        </div>
       </TableContainer>
     );
   }
