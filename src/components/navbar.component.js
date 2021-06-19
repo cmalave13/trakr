@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     textAlign: "center",
-    marginRight: "200px",
+    marginRight: "160px",
   },
 
   logo: {
@@ -66,7 +66,7 @@ export default function Navbar() {
             </IconButton>
           </Link>
 
-          <Link to={{ pathname: "/" }}>
+          {/* <Link to={{ pathname: "/" }}>
             <IconButton
               edge="start"
               className={classes.menuButton}
@@ -75,7 +75,7 @@ export default function Navbar() {
             >
               <DirectionsRunIcon style={{ color: yellow[500] }} />
             </IconButton>
-          </Link>
+          </Link> */}
 
           <Link to={{ pathname: "/create" }}>
             <IconButton
@@ -95,7 +95,7 @@ export default function Navbar() {
               color="inherit"
               aria-label="menu"
             >
-              <PersonAddIcon style={{ color: yellow[500] }} />
+              <DirectionsRunIcon style={{ color: yellow[500] }} />
             </IconButton>
           </Link>
 

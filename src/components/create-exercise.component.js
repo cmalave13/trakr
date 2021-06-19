@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Grid from "@material-ui/core/Grid";
+
+import DetailsIcon from "@material-ui/icons/Details";
+import Button from "@material-ui/core/Button";
 
 export default class CreateExercises extends Component {
   constructor(props) {
@@ -93,90 +97,100 @@ export default class CreateExercises extends Component {
       .post("http://localhost:5000/exercises/add", exercise)
       .then((res) => console.log(res.data));
 
-    // window.location = "/";
+    window.location = "/";
   }
 
   render() {
     return (
-      <div>
-        <h3>Create New Exercise Log</h3>
-        <form onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <label>Select Activity</label>
-            <select
-              ref="userInput"
-              required
-              className="form-control"
-              value={this.state.username}
-              onChange={this.onChangeUsername}
-            >
-              {this.state.users.map(function (user) {
-                // returns users from db
-                return (
-                  <option key={user} value={user}>
-                    {user}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-          <div className="form-group">
-            <label>Intensity (1-10)</label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              value={this.state.description}
-              onChange={this.onChangeDescription}
-            />
-          </div>
-          <div className="form-group">
-            <label>Duration (in minutes): </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.duration}
-              onChange={this.onChangeDuration}
-            />
-          </div>
+      <div style={{ backgroundColor: "#ffeb3b" }}>
+        <Grid container spacing="0" direction="column" alignItems="center">
+          <div>
+            <h3>Create New Exercise Log</h3>
+            <form onSubmit={this.onSubmit}>
+              <div className="form-group">
+                <label>Select Activity</label>
+                <select
+                  ref="userInput"
+                  required
+                  className="form-control"
+                  value={this.state.username}
+                  onChange={this.onChangeUsername}
+                >
+                  {this.state.users.map(function (user) {
+                    // returns users from db
+                    return (
+                      <option key={user} value={user}>
+                        {user}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <div className="form-group">
+                <label>Intensity (1-10)</label>
+                <input
+                  type="text"
+                  required
+                  className="form-control"
+                  value={this.state.description}
+                  onChange={this.onChangeDescription}
+                />
+              </div>
+              <div className="form-group">
+                <label>Duration (in minutes): </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={this.state.duration}
+                  onChange={this.onChangeDuration}
+                />
+              </div>
 
-          <div className="form-group">
-            <label>Distance (in miles): </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.distance}
-              onChange={this.onChangeDistance}
-            />
-          </div>
+              <div className="form-group">
+                <label>Distance (in miles): </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={this.state.distance}
+                  onChange={this.onChangeDistance}
+                />
+              </div>
 
-          <div className="form-group">
-            <label>Calories Burned: </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.calories}
-              onChange={this.onChangeCalories}
-            />
-          </div>
-          <div className="form-group">
-            <label>Date: </label>
-            <div>
-              <DatePicker
-                selected={this.state.date}
-                onChange={this.onChangeDate}
-              />
-            </div>
-          </div>
+              <div className="form-group">
+                <label>Calories Burned: </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={this.state.calories}
+                  onChange={this.onChangeCalories}
+                />
+              </div>
+              <div className="form-group">
+                <label>Date: </label>
+                <div>
+                  <DatePicker
+                    selected={this.state.date}
+                    onChange={this.onChangeDate}
+                  />
+                </div>
+              </div>
 
-          <div className="form-group">
-            <input
-              type="submit"
-              value="Create Exercise Log"
-              className="btn btn-primary"
-            />
+              <div className="form-group">
+                <DetailsIcon fontSize="large" />
+
+                <Button
+                  alignItems="center"
+                  type="submit"
+                  value="Add Activity"
+                  className="btn btn-primary"
+                >
+                  Add Activity{" "}
+                </Button>
+                <DetailsIcon fontSize="large" />
+              </div>
+            </form>
           </div>
-        </form>
+        </Grid>
       </div>
     );
   }

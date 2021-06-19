@@ -43,21 +43,21 @@ const Exercise = (props) => (
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    backgroundColor: "#ffeb3b",
+    color: "#000000",
   },
   body: {
     fontSize: 14,
   },
 }))(TableCell);
 
-const StyledTableRow = withStyles((theme) => ({
-  root: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover,
-    },
-  },
-}))(TableRow);
+// const StyledTableRow = withStyles((theme) => ({
+//   root: {
+//     "&:nth-of-type(odd)": {
+//       backgroundColor: theme.palette.action.hover,
+//     },
+//   },
+// }))(TableRow);
 
 // const useStyles = makeStyles({
 //   table: {
@@ -115,8 +115,8 @@ export default class ExercisesList extends Component {
         <Table aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Username</StyledTableCell>
-              <StyledTableCell>Description</StyledTableCell>
+              <StyledTableCell>Activity</StyledTableCell>
+              <StyledTableCell>Intensity Lvl</StyledTableCell>
               <StyledTableCell>Duration</StyledTableCell>
               <StyledTableCell>Distance</StyledTableCell>
               <StyledTableCell>Calories</StyledTableCell>
