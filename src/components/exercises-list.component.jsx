@@ -23,13 +23,13 @@ import axios from "axios";
 
 const Exercise = (props) => (
   <TableRow>
-    <TableCell>{props.exercise.username}</TableCell>
-    <TableCell>{props.exercise.description}</TableCell>
-    <TableCell>{props.exercise.duration}</TableCell>
-    <TableCell>{props.exercise.distance}</TableCell>
-    <TableCell>{props.exercise.calories}</TableCell>
-    <TableCell>{props.exercise.date.substring(0, 10)}</TableCell>
-    <TableCell>
+    <TableCell align="center">{props.exercise.username}</TableCell>
+    <TableCell align="center">{props.exercise.description}</TableCell>
+    <TableCell align="center">{props.exercise.duration}</TableCell>
+    <TableCell align="center">{props.exercise.distance}</TableCell>
+    <TableCell align="center">{props.exercise.calories}</TableCell>
+    <TableCell align="center">{props.exercise.date.substring(0, 10)}</TableCell>
+    <TableCell align="center">
       <Link to={"/edit/" + props.exercise._id}>
         <IconButton edge="start" color="disabled" aria-label="menu">
           <EditIcon fontSize="small" />
@@ -55,6 +55,7 @@ const StyledTableCell = withStyles((theme) => ({
   },
   body: {
     fontSize: 14,
+    textAlign: "center",
   },
 }))(TableCell);
 
@@ -122,36 +123,36 @@ export default class ExercisesList extends Component {
         <Table aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>
+              <StyledTableCell align="center">
                 ACTIVITY
                 <br /> <SportsHandballIcon fontSize="small" />
               </StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell align="center">
                 INTENSITY LVL
                 <br />
                 <TransferWithinAStationIcon fontSize="small" />
               </StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell align="center">
                 DURATION
                 <br />
                 <TimerIcon fontSize="small" />
               </StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell align="center">
                 DISTANCE
                 <br />
                 <NearMeIcon fontSize="small" />
               </StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell align="center">
                 CALORIES
                 <br />
                 <WhatshotIcon fontSize="small" />
               </StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell align="center">
                 DATE
                 <br />
                 <EventAvailableIcon fontSize="small"></EventAvailableIcon>
               </StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell align="center">
                 ACTIONS
                 <br />
                 <ListAltIcon fontSize="small" />
