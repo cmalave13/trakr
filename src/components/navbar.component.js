@@ -99,7 +99,7 @@ export default function Navbar() {
             </IconButton>
           </Link>
 
-          <Link to={{ pathname: "/calendar" }}>
+          <Link to={{ pathname: "/months" }}>
             <IconButton
               edge="start"
               className={classes.menuButton}
