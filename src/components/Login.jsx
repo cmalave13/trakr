@@ -13,6 +13,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { yellow } from "@material-ui/core/colors";
+import IconButton from "@material-ui/core/IconButton";
+import DateRangeIcon from "@material-ui/icons/DateRange";
+import { Link as Link2 } from "react-router-dom";
 
 const theme = createMuiTheme({
   palette: {
@@ -120,15 +123,18 @@ export default function Login() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.button}
-              >
-                Sign In
-              </Button>
+              <Link2 style={{ textDecoration: "none" }} to={{ pathname: "/" }}>
+                <Button
+                  // type="submit"
+                  fullWidth
+                  // variant="contained"
+                  color="primary"
+                  className={classes.button}
+                >
+                  Sign In
+                </Button>
+              </Link2>
+
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2" color="inherit">

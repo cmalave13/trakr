@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4, 4),
   },
   card: {
-    height: "120%",
+    height: "110%",
     width: "100%",
     display: "flex",
     flexDirection: "column",

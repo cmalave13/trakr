@@ -9,6 +9,13 @@ import Paper from "@material-ui/core/Paper";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import EditIcon from "@material-ui/icons/Edit";
 import IconButton from "@material-ui/core/IconButton";
+import WhatshotIcon from "@material-ui/icons/Whatshot";
+import SportsHandballIcon from "@material-ui/icons/SportsHandball";
+import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStation";
+import TimerIcon from "@material-ui/icons/Timer";
+import NearMeIcon from "@material-ui/icons/NearMe";
+import EventAvailableIcon from "@material-ui/icons/EventAvailable";
+import ListAltIcon from "@material-ui/icons/ListAlt";
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
@@ -115,13 +122,40 @@ export default class ExercisesList extends Component {
         <Table aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Activity</StyledTableCell>
-              <StyledTableCell>Intensity Lvl</StyledTableCell>
-              <StyledTableCell>Duration</StyledTableCell>
-              <StyledTableCell>Distance</StyledTableCell>
-              <StyledTableCell>Calories</StyledTableCell>
-              <StyledTableCell>Date</StyledTableCell>
-              <StyledTableCell>Actions</StyledTableCell>
+              <StyledTableCell>
+                ACTIVITY
+                <br /> <SportsHandballIcon fontSize="small" />
+              </StyledTableCell>
+              <StyledTableCell>
+                INTENSITY LVL
+                <br />
+                <TransferWithinAStationIcon fontSize="small" />
+              </StyledTableCell>
+              <StyledTableCell>
+                DURATION
+                <br />
+                <TimerIcon fontSize="small" />
+              </StyledTableCell>
+              <StyledTableCell>
+                DISTANCE
+                <br />
+                <NearMeIcon fontSize="small" />
+              </StyledTableCell>
+              <StyledTableCell>
+                CALORIES
+                <br />
+                <WhatshotIcon fontSize="small" />
+              </StyledTableCell>
+              <StyledTableCell>
+                DATE
+                <br />
+                <EventAvailableIcon fontSize="small"></EventAvailableIcon>
+              </StyledTableCell>
+              <StyledTableCell>
+                ACTIONS
+                <br />
+                <ListAltIcon fontSize="small" />
+              </StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>{this.exerciseList()}</TableBody>
